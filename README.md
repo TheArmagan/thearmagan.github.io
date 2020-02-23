@@ -1,1 +1,3 @@
-# armagann.github.io
+# Armagann
+
+[Nvidia GeForce Now - Supported Games](/nvgefn)
