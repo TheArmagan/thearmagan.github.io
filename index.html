@@ -54,6 +54,14 @@
             pointer-events: none;
             opacity: 0.5;
         }
+
+        .project-card {
+            height: 360px;
+        }
+
+        .project-card .card-content {
+            height: 50%;
+        }
     </style>
 </head>
 
@@ -63,7 +71,7 @@
             <nav>
                 <div class="nav-wrapper indigo">
                     <a onclick="app.isAboutPage = false" href="#" class="brand-logo">KAÖ</a>
-                    <ul id="nav-mobile" class="right">
+                    <ul class="right">
                         <li><a onclick="app.isAboutPage = !app.isAboutPage" href="#">{{isAboutPage ? "Projelerim" : "Hakkımda"}}</a></li>
                         <li><a href="https://github.com/TheArmagan">Github</a></li>
                     </ul>
@@ -76,7 +84,7 @@
 
                     <div class="row">
                         <div v-for="(item, index) in myProjects" class="col s12 m6 l4 xl3">
-                            <div class="card grey darken-3">
+                            <div class="card grey darken-3 project-card">
                                 <div class="card-image">
                                     <div class="image" :style="`background-image: url('${item.previewURL}');`"></div>
                                     <span class="card-title">{{item.name}}</span>
@@ -144,6 +152,13 @@
                         previewURL: "https://i.imgur.com/wCn1h3E.png", 
                         siteURL: "https://thearmagan.github.io/nvidia-geforce-now-supported-games",
                         githubURL: "https://github.com/TheArmagan/nvidia-geforce-now-supported-games"
+                    },
+                    {
+                        name: "DATAPIPE",
+                        description: "HTTP/HTTPS Proxy with custom request headers.",
+                        previewURL: "https://i.imgur.com/1gyKw49.png", 
+                        siteURL: "https://kao-datapipe-1.herokuapp.com/",
+                        githubURL: "https://github.com/TheArmagan/data-pipe"
                     }
                 ]
             },
