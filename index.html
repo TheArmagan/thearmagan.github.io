@@ -11,6 +11,18 @@
     <title>kao.web.tr</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <style>
+
+        body {
+            pointer-events: all;
+            opacity: 1;
+            transition: opacity 300ms ease-in-out;
+        }
+
+        body.hidden {
+            pointer-events: none;
+            opacity: 0;
+        }
+
         .nav-wrapper {
             padding: 0 1rem;
         }
@@ -45,7 +57,7 @@
     </style>
 </head>
 
-<body class="grey darken-4">
+<body class="hidden grey darken-4">
     <div id="vue-app">
         <div class="container">
             <nav>
@@ -63,63 +75,18 @@
                 <div v-if="!isAboutPage">
 
                     <div class="row">
-                        <div class="col s12 m6 l4 xl3">
+                        <div v-for="(item, index) in myProjects" class="col s12 m6 l4 xl3">
                             <div class="card grey darken-3">
                                 <div class="card-image">
-                                    <div class="image" style="background-image: url('https://i.imgur.com/Q4xTqDT.png');"></div>
-                                    <span class="card-title">JPATH</span>
+                                    <div class="image" :style="`background-image: url('${item.previewURL}');`"></div>
+                                    <span class="card-title">{{item.name}}</span>
                                 </div>
                                 <div class="card-content white-text">
-                                    <p>Kolay bir şekilde json objesinin içerisinde gezinmenizi sağlar!</p>
+                                    <p>{{item.description}}</p>
                                 </div>
                                 <div class="card-action">
-                                    <a href="https://thearmagan.github.io/JPATH">Siteye Git</a>
-                                    <a href="https://github.com/TheArmagan/JPATH">Github</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6 l4 xl3">
-                            <div class="card grey darken-3">
-                                <div class="card-image">
-                                    <div class="image" style="background-image: url('https://i.imgur.com/pXtyU4V.png');"></div>
-                                    <span class="card-title">DABOX</span>
-                                </div>
-                                <div class="card-content white-text">
-                                    <p>Sınırsız miktarda dosya yükleyebildiğiniz bir site!</p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="https://da-box.herokuapp.com/">Siteye Git</a>
-                                    <a class="disabled" href="#">Github</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6 l4 xl3">
-                            <div class="card grey darken-3">
-                                <div class="card-image">
-                                    <div class="image" style="background-image: url('https://i.imgur.com/xrQUfTN.png');"></div>
-                                    <span class="card-title">CLICKCOLOR</span>
-                                </div>
-                                <div class="card-content white-text">
-                                    <p>Gerçek zamanlı olarak renk değiştirebildiğiniz ve renk değiştiğinde POST requesti attırabildiğiniz bir site.<br></p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="https://clickcolor.herokuapp.com/">Siteye Git</a>
-                                    <a href="https://github.com/TheArmagan/clickcolor">Github</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col s12 m6 l4 xl3">
-                            <div class="card grey darken-3">
-                                <div class="card-image">
-                                    <div class="image" style="background-image: url('https://i.imgur.com/wCn1h3E.png');"></div>
-                                    <span class="card-title">Nvidia GeForce Now Supported Games</span>
-                                </div>
-                                <div class="card-content white-text">
-                                    <p>Nvidia GeForce NOW tarafından desteklenen ve deteklenmeyen oyunları sıralamanızı sağlayan bir site.<br></p>
-                                </div>
-                                <div class="card-action">
-                                    <a href="https://thearmagan.github.io/nvidia-geforce-now-supported-games">Siteye Git</a>
-                                    <a href="https://github.com/TheArmagan/nvidia-geforce-now-supported-games">Github</a>
+                                    <a :class="{'disabled': !item.siteURL}" :href="item.siteURL">Siteye Git</a>
+                                    <a :class="{'disabled': !item.githubURL}" :href="item.githubURL">Github</a>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +115,44 @@
         const app = new Vue({
             el: "#vue-app",
             data: {
-                isAboutPage: false
+                isAboutPage: false,
+                myProjects: [
+                    {
+                        name: "JPATH",
+                        description: "Kolay bir şekilde json objesinin içerisinde gezinmenizi sağlar!",
+                        previewURL: "https://i.imgur.com/Q4xTqDT.png", 
+                        siteURL: "https://thearmagan.github.io/JPATH",
+                        githubURL: "https://github.com/TheArmagan/JPATH"
+                    },
+                    {
+                        name: "DABOX",
+                        description: "Sınırsız miktarda dosya yükleyebildiğiniz bir site!",
+                        previewURL: "https://i.imgur.com/pXtyU4V.png", 
+                        siteURL: "https://da-box.herokuapp.com/",
+                        githubURL: ""
+                    },
+                    {
+                        name: "CLICKCOLOR",
+                        description: "Gerçek zamanlı olarak renk değiştirebildiğiniz ve renk değiştiğinde POST requesti attırabildiğiniz bir site.",
+                        previewURL: "https://i.imgur.com/xrQUfTN.png", 
+                        siteURL: "https://clickcolor.herokuapp.com/",
+                        githubURL: "https://github.com/TheArmagan/clickcolor"
+                    },
+                    {
+                        name: "Nvidia GeForce Now Supported Games",
+                        description: "Nvidia GeForce NOW tarafından desteklenen ve deteklenmeyen oyunları sıralamanızı sağlayan bir site.",
+                        previewURL: "https://i.imgur.com/wCn1h3E.png", 
+                        siteURL: "https://thearmagan.github.io/nvidia-geforce-now-supported-games",
+                        githubURL: "https://github.com/TheArmagan/nvidia-geforce-now-supported-games"
+                    }
+                ]
+            },
+            mounted: function () {
+                setTimeout(()=>{
+                    requestAnimationFrame(()=>{
+                        document.body.classList.remove("hidden");
+                    })
+                },10);
             }
         })
     </script>
