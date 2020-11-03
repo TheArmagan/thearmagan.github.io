@@ -41,6 +41,20 @@ const __MY_PROJECTS__ = [{
         ]
     },
     {
+        name: "Color Palate Maker",
+        description: "Kolay bir şekilde renk paleti oluşturmanızı ve o paleti resim olrak indirmenizi sağlayan bir site.",
+        previewImage: "./images/previews/colorpalatemaker.png",
+        buttons: [{
+                name: "Siteye Git",
+                url: "https://thearmagan.github.io/color-palate-maker",
+            },
+            {
+                name: "Github",
+                url: "https://github.com/TheArmagan/color-palate-maker",
+            }
+        ]
+    },
+    {
         name: "CLICKCOLOR",
         description: "Gerçek zamanlı olarak renk değiştirebildiğiniz ve renk değiştiğinde POST requesti attırabildiğiniz bir site.",
         previewImage: "./images/previews/clickcolor.png",
