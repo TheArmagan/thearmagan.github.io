@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta property="og:title" content="Discord - Armagan's Stuffs™️" />
-    <meta property="og:description" content="Join to Armagan's Stuffs™️ discord server!" />
+    <meta
+      property="og:description"
+      content="Join to Armagan's Stuffs™️ discord server!"
+    />
     <meta property="og:image" content="/images/armagan_logo_with_bg.png" />
     <meta property="theme-color" content="#6BF8F7" />
-</head>
-<body>
+  </head>
+  <body style="background-color: #0e0e0e">
     <script>
-        document.title = "Redirecting to Discord Guild";
-        setTimeout(()=>{
-            window.location.href = "https://discord.gg/fCqAh4kh77";
-        },1);
+      document.title = "Redirecting to Discord Guild";
+      setTimeout(async () => {
+        await fetch(
+          "https://antics-app.herokuapp.com/antics/add/site-redirects/discord"
+        );
+        window.location.href = "https://discord.gg/fCqAh4kh77";
+      }, 1);
     </script>
-</body>
+  </body>
 </html>
