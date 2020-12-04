@@ -99,5 +99,18 @@ let __MY_PROJECTS__ = [
             name: "Github",
             url: "https://github.com/TheArmagan/data-pipe",
         }]
+    },
+    {
+        name: "Kuş Dili Çevirgeci",
+        description: "Herhangi bir yazıyı kuş diline çevirmenizi sağlar.",
+        previewImage: "./images/previews/kusdilicevirgeci.png",
+        buttons: [{
+            name: "Siteye Git",
+            url: "https://thearmagan.github.io/kus-dili-cevirgeci/",
+        },
+        {
+            name: "Github",
+            url: "https://github.com/TheArmagan/kus-dili-cevirgeci/",
+        }]
     }
 ]
