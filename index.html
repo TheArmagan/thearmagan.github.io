@@ -1,123 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta property="og:site_name" content="Kıraç Armağan Önal" />
-    <meta property="og:title" content="kao.web.tr" />
-    <meta property="og:description" content="Yaptığım projeler ve hakkımda bilgi." />
-    <meta property="theme-color" content="#3F51B5" />
-    <title>kao.web.tr</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
-
-        body {
-            pointer-events: all;
-            opacity: 1;
-            transition: opacity 300ms ease-in-out;
-        }
-
-        body.hidden {
-            pointer-events: none;
-            opacity: 0;
-        }
-
-        .nav-wrapper {
-            padding: 0 1rem;
-        }
-
-        nav .brand-logo {
-            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-weight: bolder;
-        }
-
-        main {
-            margin-top: 2rem;
-        }
-
-        .card .card-image .card-title {
-            text-shadow: 1px 1px 1px black;
-            font-weight: 400 !important;
-        }
-
-        .card .card-image .image {
-            filter: brightness(0.7);
-
-            height: 128px;
-            width: auto;
-
-            background-position: top;
-            background-size: 100%;
-            background-repeat: no-repeat;
-        }
-
-        .card .card-image .image.center {
-            background-position: center;
-        }
-
-        .card .card-action a.disabled {
-            pointer-events: none;
-            opacity: 0.5;
-        }
-    </style>
-</head>
-
-<body class="hidden grey darken-4">
-    <div id="vue-app">
-        <div class="container">
-            <nav>
-                <div class="nav-wrapper indigo">
-                    <a onclick="app.isAboutPage = false" href="#" class="brand-logo">KAÖ</a>
-                    <ul class="right">
-                        <li><a onclick="app.isAboutPage = !app.isAboutPage" href="#">{{isAboutPage ? "Projelerim" : "Hakkımda"}}</a></li>
-                        <li><a href="https://github.com/TheArmagan">Github</a></li>
-                    </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>thearmagan.github.io</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="container">
+      <nav>
+        <ul>
+          <li class="logo"><h1>TheArmağan</h1></li>
+          <li>
+            <a href="#projelerim">Projelerim</a>
+          </li>
+          <li>
+            <a href="#hakkımda">Hakkımda</a>
+          </li>
+          <li>
+            <a href="https://thearmagan.github.io">Github Sayfam</a>
+          </li>
+        </ul>
+      </nav>
+      <!-- <div ref="hamburgerMenu" class="hamburger-menu">
+        <ul>
+          <li>
+            <a href="#projelerim">Projelerim</a>
+          </li>
+          <li>
+            <a href="#hakkımda">Hakkımda</a>
+          </li>
+          <li>
+            <a href="https://thearmagan.github.io">Github Sayfam</a>
+          </li>
+        </ul>
+      </div> -->
+      <main>
+        <section id="hakkımda">
+          <div class="card">
+            <h1 class="card-title">Hakkımda</h1>
+            <p class="card-text">
+              Merhaba benim adım Armağan,
+              <span class="auto-fill-age">[]</span> yaşındayım.
+            </p>
+          </div>
+        </section>
+        <hr />
+        <section id="projelerim">
+          <h1 class="section-title">Projelerim</h1>
+          <div class="projects-wrapper">
+            <div
+              v-for="(proje, index) in projeler"
+              :key="index"
+              class="project-card"
+              :class="{'full-size': proje.fullSize}"
+            >
+              <div
+                class="card-image"
+                :style="`--img: url('${proje.previewImage}')`"
+              ></div>
+              <h1 class="card-title">{{proje.title}}</h1>
+              <p class="card-text">{{proje.description}}</p>
+              <div class="card-buttons">
+                <div class="button-container">
+                  <a
+                    v-for="(button, buttonIndex) in proje.buttons"
+                    :key="buttonIndex"
+                    class="button"
+                    :href="button.url"
+                    :class="{'disabled': !button.url}"
+                    >{{button.title}}</a
+                  >
                 </div>
-            </nav>
-
-            <main>
-
-                <div v-if="!isAboutPage">
-
-                    <div class="row">
-                        <div v-for="(project, index) in myProjects" class="col s12 m6 l4 xl3">
-                            <div class="card grey darken-3 project-card">
-                                <div class="card-image">
-                                    <div class="image" :style="`background-image: url('${project.previewImage}');`" :class="{center: project.centerPreview}"></div>
-                                    <span class="card-title">{{project.name}}</span>
-                                </div>
-                                <div class="card-content white-text">
-                                    <p>{{project.description}}</p>
-                                </div>
-                                <div class="card-action">
-                                    <a v-for="(btn, index) in project.buttons" :class="{'disabled': !btn.url}" :href="btn.url">{{btn.name}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div v-if="isAboutPage">
-
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card-panel grey darken-3 white-text">
-                                <p>Hi! I am Kıraç Armağan Önal and I like programming JavaScript, HTML, CSS, C# and such in other languages.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </main>
-        </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <hr />
+      </main>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="./data/myProjects.js"></script>
-    <script src="./script.js"></script>
-</body>
-
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="/data/projelerim.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>

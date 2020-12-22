@@ -1,19 +1,28 @@
 const app = new Vue({
-    el: "#vue-app",
+    el: "#container",
     data: {
-        isAboutPage: false,
-        myProjects: __MY_PROJECTS__
+        projeler: DATA_PROJELERIM
     },
-    mounted: async function () {
+    mounted() {
+        const ageSpans = document.querySelectorAll(".auto-fill-age");
 
-        let discordOnlineUserAmount = (await (await fetch("https://discord.com/api/guilds/775348842894983171/widget.json")).json()).presence_count;
+        function updateAgeTexts() {
 
-        this.myProjects.find(i => i.name == "DISCORD SERVER").buttons.push({ name: `${discordOnlineUserAmount}` });
+            const birthDate = new Date("01-30-2004");
+            const currentDate = new Date();
+            const dateDiff = new Date(currentDate - birthDate);
+            const dateDiffAsYears = (Number(dateDiff) / 1000 / 60 / 60 / 24 / 30 / 12) - 0.4;
 
-        setTimeout(() => {
-            requestAnimationFrame(() => {
-                document.body.classList.remove("hidden");
+            ageSpans.forEach((el) => {
+                el.title = dateDiffAsYears;
+                el.textContent = dateDiffAsYears.toFixed(2);
             });
-        }, 10);
-    },
-});
+
+        }
+
+        setInterval(() => {
+            updateAgeTexts();
+        }, 1000);
+        updateAgeTexts();
+    }
+})
