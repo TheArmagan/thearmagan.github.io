@@ -83,6 +83,7 @@ main {
   width: 100%;
   min-height: 250px;
   padding: 32px;
+  overflow: hidden;
 }
 
 .card-title {
@@ -232,4 +233,9 @@ hr {
 
 .hamburger-menu.open {
   right: 0;
+}
+
+#discord-widget {
+  width: 450px;
+  height: 600px;
 }
