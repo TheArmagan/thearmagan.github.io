@@ -91,11 +91,24 @@
         line-height: 32px;
       }
 
-      .channel-name {
-        color: var(--gold-white);
-        text-shadow: 1px 1px 8px #000000;
-        line-height: 36px;
+      .channel {
         padding-left: 6px;
+      }
+
+      .channel .member {
+        opacity: 0.9;
+        padding-left: 8px;
+      }
+
+      .channel .member:last-child {
+        padding-bottom: 6px;
+      }
+
+      .channel-name {
+        color: var(--off-white);
+        text-shadow: 1px 1px 8px #00000088;
+        line-height: 36px;
+        font-size: 24px;
       }
 
       .header-container {
@@ -111,7 +124,6 @@
 
       .channels {
         padding: 12px;
-        font-size: 26px;
       }
 
       .channels-title {
@@ -133,6 +145,7 @@
       .member {
         display: flex;
         align-items: center;
+        padding-left: 6px;
       }
 
       .member-username {
@@ -242,7 +255,29 @@
               :key="channel.id"
               class="channel"
             >
-              <div class="channel-name">{{channel.name}}</div>
+              <div class="channel">
+                <div class="channel-name">{{channel.name}}</div>
+                <div
+                  v-for="member in widgetData.members.filter(m=>m?.channel_id == channel.id)"
+                  :key="member.id"
+                  class="member"
+                >
+                  <div class="member-avatar-container">
+                    <div
+                      class="member-avatar"
+                      :style="`--avatar-image: url('${member.avatar_url}');`"
+                    ></div>
+                    <div
+                      class="member-avatar-status"
+                      :style="`--status-color: ${member.status == 'online' ? '#43B581' : member.status == 'idle' ? '#FAA61A' : member.status == 'dnd' ? '#F04747' : '#ffffff'};`"
+                    ></div>
+                  </div>
+                  <div class="member-username">{{member.username}}</div>
+                  <div v-if="member?.game?.name" class="member-game-name">
+                    <sub>{{member.game.name}}</sub>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="members">
