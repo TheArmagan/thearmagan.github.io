@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Discord Widget</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body,
+      .container,
+      #vue-app {
+        width: 100%;
+        height: 100%;
+        background-color: var(--black);
+        color: var(--white);
+        font-family: monospace;
+        overflow: overlay;
+      }
+
+      :root {
+        --black: #000000;
+        --white: #ffffff;
+        --blurple: #7289da;
+        --not-quite-black: #23272a;
+        --gold-white: rgb(250, 250, 250);
+        --off-white: rgb(230, 230, 230);
+        --dark-but-not-black: #2c2f33;
+        --greyple: #99aab5;
+      }
+
+      ::-webkit-scrollbar {
+        width: 11px;
+      }
+
+      ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 11px 11px rgba(0, 0, 0, 0.05);
+        border: solid 2px transparent;
+        border-radius: 11px;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        box-shadow: inset 0 0 11px 11px rgba(0, 0, 0, 0.1);
+        border: solid 2px transparent;
+        border-radius: 11px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        box-shadow: inset 0 0 11px 11px rgba(0, 0, 0, 0.2);
+      }
+
+      ::-webkit-scrollbar-button {
+        display: none;
+      }
+
+      .container.loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      header {
+        display: block;
+        height: 60px;
+        background-color: var(--blurple);
+        display: flex;
+        align-items: center;
+        position: relative;
+      }
+
+      header h1 {
+        display: inline-block;
+        font-weight: 800;
+        font-size: 32px;
+        text-shadow: 2px 2px 1px #000000;
+      }
+
+      header h2 {
+        display: inline-block;
+        font-weight: 400;
+        font-size: 16px;
+        text-shadow: 1px 1px 1px #0000002f;
+        opacity: 0.9;
+        padding-left: 6px;
+        line-height: 32px;
+      }
+
+      .channel-name {
+        color: var(--gold-white);
+        text-shadow: 1px 1px 8px #000000;
+        line-height: 36px;
+        padding-left: 6px;
+      }
+
+      .header-container {
+        margin: 0 12px;
+        width: 100%;
+      }
+
+      main {
+        min-height: calc(100vh - 60px);
+        background-color: var(--not-quite-black);
+        padding-bottom: 30px;
+      }
+
+      .channels {
+        padding: 12px;
+        font-size: 26px;
+      }
+
+      .channels-title {
+        text-shadow: 1px 1px 16px #000000;
+        font-size: 30px;
+        margin-bottom: 6px;
+      }
+
+      .members {
+        padding: 12px;
+      }
+
+      .members-title {
+        font-size: 28px;
+        text-shadow: 1px 1px 16px #000000;
+        margin-bottom: 6px;
+      }
+
+      .member {
+        display: flex;
+        align-items: center;
+      }
+
+      .member-username {
+        color: var(--off-white);
+        text-shadow: 1px 1px 6px #000000b0;
+        font-size: 22px;
+        padding-left: 6px;
+        line-height: 32px;
+      }
+
+      .member-avatar-container {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin-right: 2px;
+      }
+
+      .member-avatar {
+        background-image: var(--avatar-image);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background-position: center center;
+        background-size: contain;
+      }
+
+      .member-avatar-status {
+        position: absolute;
+
+        bottom: 0px;
+        right: 0px;
+
+        width: 9px;
+        height: 9px;
+
+        background-color: var(--status-color);
+
+        border-radius: 50%;
+
+        border: 1px solid var(--not-quite-black);
+      }
+
+      .member-game-name {
+        margin-left: 6px;
+        opacity: 0.6;
+        font-size: 12px;
+      }
+
+      footer {
+        height: 26px;
+        width: 100vw;
+        background-color: var(--blurple);
+
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+
+        display: flex;
+        align-items: center;
+      }
+
+      .footer-container {
+        margin: 0 6px;
+        position: relative;
+        width: 100%;
+      }
+
+      .online-members {
+        display: inline-block;
+        font-size: 18px;
+        text-shadow: 1px 1px 6px #000000;
+      }
+
+      .join-here-button {
+        float: right;
+        font-size: 18px;
+        color: var(--white);
+        font-weight: 600;
+        text-shadow: 1px 1px 16px #000000;
+        padding: 1px;
+        transition: all 300ms ease-out;
+      }
+
+      .join-here-button:hover {
+        transform: scale(2);
+        transform-origin: right bottom;
+        padding: 5px;
+        color: var(--off-white);
+        text-shadow: 0px 0px 8px var(--white);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="vue-app">
+      <div v-if="widgetData" class="container">
+        <header>
+          <div class="header-container">
+            <h1>Discord</h1>
+            <h2>{{widgetData.name}}</h2>
+          </div>
+        </header>
+        <main>
+          <div class="channels">
+            <h1 class="channels-title">Voice Channels</h1>
+            <div
+              v-for="channel in widgetData.channels"
+              :key="channel.id"
+              class="channel"
+            >
+              <div class="channel-name">{{channel.name}}</div>
+            </div>
+          </div>
+          <div class="members">
+            <h1 class="members-title">Online Members</h1>
+            <div
+              v-for="member in widgetData.members"
+              :key="member.id"
+              class="member"
+            >
+              <div class="member-avatar-container">
+                <div
+                  class="member-avatar"
+                  :style="`--avatar-image: url('${member.avatar_url}');`"
+                ></div>
+                <div
+                  class="member-avatar-status"
+                  :style="`--status-color: ${member.status == 'online' ? '#43B581' : member.status == 'idle' ? '#FAA61A' : member.status == 'dnd' ? '#F04747' : '#ffffff'};`"
+                ></div>
+              </div>
+              <div class="member-username">{{member.username}}</div>
+              <div v-if="member?.game?.name" class="member-game-name">
+                <sub>{{member.game.name}}</sub>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <div class="footer-container">
+              <div class="online-members">
+                {{widgetData.presence_count}} members are online..
+              </div>
+              <a
+                :href="inviteURL || widgetData.instant_invite"
+                class="join-here-button"
+                title="Please Join 🙂"
+                >Join Here!</a
+              >
+            </div>
+          </footer>
+        </main>
+      </div>
+      <div v-else class="container loading">
+        <h1>Please Wait Widget Is Loading..</h1>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+      const url = new URL(window.location.href);
+
+      const app = new Vue({
+        el: "#vue-app",
+        data: {
+          widgetData: null,
+          inviteURL: null,
+        },
+        mounted() {
+          fetch(
+            `https://discord.com/api/guilds/${
+              url.searchParams.get("gid") || "775348842894983171"
+            }/widget.json`,
+            { cache: "no-cache" }
+          )
+            .then((d) => d.json())
+            .then((json) => {
+              json.channels = json.channels.sort(
+                (a, b) => a.position - b.position
+              );
+
+              document.title = `Discord Widget - ${json.name}`;
+              app.widgetData = json;
+            });
+
+          this.inviteURL = url.searchParams.get("iurl");
+        },
+      });
+    </script>
+  </body>
+</html>
