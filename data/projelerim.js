@@ -118,6 +118,7 @@ const DATA_PROJELERIM = [
         title: "Yumuşak G",
         description: "ğ",
         previewImage: "./images/previews/smoothg.png",
+        centerPreview: true,
         buttons: [{
             title: "Siteye Git",
             url: "https://thearmagan.github.io/smooth-g/",
