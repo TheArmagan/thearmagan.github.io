@@ -69,6 +69,7 @@
             >
               <div
                 class="card-image"
+                :class="{'center-preview': proje.centerPreview}"
                 :style="`--img: url('${proje.previewImage}')`"
               ></div>
               <h1 class="card-title">{{proje.title}}</h1>

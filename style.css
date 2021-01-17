@@ -146,11 +146,15 @@ hr {
   transition: all 300ms ease-in-out;
 }
 
+.project-card .card-image.center-preview {
+  background-position: center;
+}
+
 .project-card .card-image:hover {
   background-size: cover;
 }
 
-.project-card .card-title {
+.project-card .card-image .project-card .card-title {
   opacity: 0.9;
 }
 
