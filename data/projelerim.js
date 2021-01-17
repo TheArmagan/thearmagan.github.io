@@ -113,5 +113,18 @@ const DATA_PROJELERIM = [
             title: "Github",
             url: "https://github.com/TheArmagan/kus-dili-cevirgeci/",
         }]
+    },
+    {
+        title: "Yumuşak G",
+        description: "ğ",
+        previewImage: "./images/previews/smoothg.png",
+        buttons: [{
+            title: "Siteye Git",
+            url: "https://thearmagan.github.io/smooth-g/",
+        },
+        {
+            title: "Github",
+            url: "https://github.com/TheArmagan/smooth-g/",
+        }]
     }
 ]
