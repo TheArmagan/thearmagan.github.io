@@ -11,7 +11,7 @@ const DATA_PROJELERIM = [
     // },
     {
         title: "JPATH",
-        description: "Kolay bir şekilde json objesinin içerisinde gezinmenizi sağlar!",
+        description: "Kolay bir şekilde JSON objelerinin içerisinde gezinmenizi ve istediğiniz obje için konum oluşturmanızı sağlar.",
         previewImage: "./images/previews/jpath.png",
         buttons: [{
             title: "Siteye Git",
@@ -20,7 +20,8 @@ const DATA_PROJELERIM = [
         {
             title: "Github",
             url: "https://github.com/TheArmagan/JPATH",
-        }]
+        }],
+        splash: "UPDATED"
     },
     {
         title: "DABOX",
@@ -29,12 +30,13 @@ const DATA_PROJELERIM = [
         fullSize: true,
         buttons: [{
             title: "Siteye Git",
-            url: "https://da-box.herokuapp.com/",
+            url: "https://dabox.me",
         },
         {
             title: "Github",
             url: "",
-        }]
+        }],
+        splash: "UPDATED"
     },
     {
         title: "EasyImage",
@@ -60,7 +62,8 @@ const DATA_PROJELERIM = [
         {
             title: "Github",
             url: "https://github.com/TheArmagan/color-palate-maker",
-        }]
+        }],
+        splash: "BETA"
     },
     {
         title: "CLICKCOLOR",
@@ -126,6 +129,7 @@ const DATA_PROJELERIM = [
         {
             title: "Github",
             url: "https://github.com/TheArmagan/smooth-g/",
-        }]
+        }],
+        splash: "??!"
     }
 ]

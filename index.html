@@ -9,7 +9,12 @@
     <meta property="og:title" content="TheArmagan" />
     <meta
       property="og:description"
-      content="Benim hakkımda bilgi ve projelerim."
+      content="Selamlar! Benim adım Kıraç Armağan Önal, 2004 30 Ocak doğumluyum.
+              Genel olarak JavaScript (EcmaScript) ile uğraşıyorum, backend
+              yazılımcısı olarak yazılım hayatına atıldım fakat kendimi frontend
+              tarafındada geliştirmeye çalışıyorum. Aşağıda yaptığım bazı
+              projeleri görebilirsiniz. Ek olarak yaptığım tüm projeleri görmek
+              istiyorsanız Github ve Npm adreslerime bakabilirsiniz."
     />
     <meta property="theme-color" content="#E2ECF8" />
   </head>
@@ -25,30 +30,28 @@
             <a href="#hakkımda">Hakkımda</a>
           </li>
           <li>
-            <a href="https://github.com/TheArmagan">Github Sayfam</a>
+            <a href="https://github.com/TheArmagan">NPM</a>
+          </li>
+          <li>
+            <a href="https://www.npmjs.com/~armagan_">Github</a>
+          </li>
+          <li>
+            <a href="/discord">Discord</a>
           </li>
         </ul>
       </nav>
-      <!-- <div ref="hamburgerMenu" class="hamburger-menu">
-        <ul>
-          <li>
-            <a href="#projelerim">Projelerim</a>
-          </li>
-          <li>
-            <a href="#hakkımda">Hakkımda</a>
-          </li>
-          <li>
-            <a href="https://thearmagan.github.io">Github Sayfam</a>
-          </li>
-        </ul>
-      </div> -->
       <main>
         <section id="hakkımda">
           <div class="card">
             <h1 class="card-title">Hakkımda</h1>
             <p class="card-text">
-              Merhaba benim adım Armağan,
-              <span class="auto-fill-age">[]</span> yaşındayım.
+              Selamlar! Benim adım Kıraç Armağan Önal, 2004 30 Ocak doğumluyum.
+              Genel olarak JavaScript (EcmaScript) ile uğraşıyorum, backend
+              yazılımcısı olarak yazılım hayatına atıldım fakat kendimi frontend
+              tarafındada geliştirmeye çalışıyorum. Aşağıda yaptığım bazı
+              projeleri görebilirsiniz. Ek olarak yaptığım tüm projeleri görmek
+              istiyorsanız Github ve NPM adreslerime bakabilirsiniz. (ps.
+              Disleksim olduğu için yazım hatalarımın kusuruna bakmayın lütfen.)
             </p>
           </div>
         </section>
@@ -56,17 +59,15 @@
         <section id="projelerim">
           <h1 class="section-title">Projelerim</h1>
           <div class="projects-wrapper">
-            <iframe
-              class="project-card full-size"
-              src="/discord-widget.html"
-              frameborder="0"
-            ></iframe>
             <div
               v-for="(proje, index) in projeler"
               :key="index"
               class="project-card"
               :class="{'full-size': proje.fullSize}"
             >
+              <span v-if="!!proje?.splash" class="splash"
+                >{{proje.splash}}</span
+              >
               <div
                 class="card-image"
                 :class="{'center-preview': proje.centerPreview}"
