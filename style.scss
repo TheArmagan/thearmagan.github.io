@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-attachment: fixed;
+  background-image: linear-gradient(
+    109.6deg,
+    rgba(223, 234, 247, 1) 11.2%,
+    rgba(244, 248, 252, 1) 91.1%
+  );
+}
+#container {
+  position: relative;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+nav {
+  background-color: rgb(250, 250, 250);
+  height: 56px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  padding: 0 1rem;
+  box-shadow: 0 1.7px 2.7px rgba(0, 0, 0, 0.024),
+    0 4.8px 7.5px rgba(0, 0, 0, 0.035), 0 11.5px 18.1px rgba(0, 0, 0, 0.046),
+    0 38px 60px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  ul {
+    list-style-type: none;
+    width: 100%;
+    li {
+      display: block;
+      line-height: 22px;
+      float: right;
+      padding: 0 6px;
+      a {
+        color: darkcyan;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+      a.active {
+        text-decoration: underline;
+      }
+    }
+    li.active {
+      text-decoration: underline;
+    }
+  }
+
+  .logo {
+    float: left;
+    color: #111;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: 600;
+    font-size: 22px;
+  }
+}
+
+main {
+  margin-top: 16px;
+}
+
+.card {
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0 10.9px 6.9px rgba(0, 0, 0, 0.015),
+    0 22px 38px rgba(0, 0, 0, 0.03);
+  border-radius: 3px;
+  width: 100%;
+  min-height: 250px;
+  padding: 32px;
+  overflow: hidden;
+}
+.card-title {
+  font-family: "Montserrat", sans-serif;
+  margin-bottom: 16px;
+  &:not(:first-child) {
+    margin-top: 16px;
+  }
+}
+.card-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  font-family: "Montserrat", sans-serif;
+}
+hr {
+  margin: 32px;
+  border: 1px solid rgba(245, 245, 245, 0.2);
+  border-radius: 3px;
+}
+.projects-wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+.project-card {
+  flex: 45%;
+  height: 450px;
+  margin: 6px;
+  padding: 32px;
+  position: relative;
+  border: 1px solid rgba(245, 245, 245, 0.2);
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0 10.9px 6.9px rgba(0, 0, 0, 0.015),
+    0 22px 38px rgba(0, 0, 0, 0.03);
+  transition: box-shadow 300ms ease-in-out, transform 80ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 3.6px 37.4px -60px rgba(0, 0, 0, 0.17),
+      0 29px 102px -60px rgba(0, 0, 0, 0.34);
+    transform: scale(1.02);
+  }
+
+  .card-image {
+    width: 100%;
+    height: 165px;
+    border-radius: 6px;
+    background-image: var(--img);
+    background-position: center top;
+    background-size: 200%;
+    background-repeat: no-repeat;
+    transition: all 300ms ease-in-out;
+
+    &:hover {
+      background-size: cover;
+    }
+
+    .project-card {
+      .card-title {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .card-image.center-preview {
+    background-position: center;
+  }
+
+  .card-text {
+    display: inline-block;
+    height: 120px;
+  }
+
+  .card-buttons {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+  }
+
+  .splash {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: rgb(165, 168, 0);
+    text-shadow: 0px 0px 2px rgb(255, 238, 0);
+    padding: 2px;
+    font-size: 14px;
+  }
+}
+
+.project-card.full-size {
+  flex: 100%;
+}
+
+.card-buttons {
+  .button {
+    text-decoration: none;
+    cursor: pointer;
+    border: 0;
+    color: darkcyan;
+    padding: 16px;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    transition: all 180ms ease-in-out;
+    background-color: rgba(158, 158, 158, 0.1);
+    border-radius: 3px;
+    margin: 2px;
+    word-break: keep-all;
+    user-select: none;
+
+    &:hover {
+      background-color: rgba(17, 17, 17, 0.1);
+      color: rgb(68, 148, 148);
+      transition: all 80ms ease-in-out;
+    }
+
+    &:active {
+      background-color: rgba(0, 0, 0, 0.1);
+      color: rgb(32, 88, 88);
+    }
+  }
+
+  .button.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+.section-title {
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 48px;
+  color: rgba(77, 77, 77, 0.342);
+  margin-bottom: 16px;
+  text-shadow: 0px 0px 16px rgba(75, 75, 75, 0.082),
+    0px 6px 16px rgba(0, 0, 0, 0.075);
+  text-decoration: underline;
+}
+
+#discord-widget {
+  width: 450px;
+  height: 600px;
+}
+
+#hakkımda {
+  .card-text {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: linear-gradient(
+      109.6deg,
+      rgb(33, 35, 37) 11.2%,
+      rgb(24, 25, 26) 91.1%
+    );
+  }
+
+  nav {
+    background-color: rgb(19, 19, 19);
+
+    .logo {
+      color: rgb(240, 240, 240);
+    }
+  }
+
+  .card {
+    background-color: rgb(19, 19, 19);
+    color: rgb(224, 224, 224);
+  }
+
+  .section-title {
+    color: rgba(228, 228, 228, 0.644);
+    text-shadow: 0px 0px 16px rgba(255, 255, 255, 0.082),
+      0px 6px 16px rgba(255, 255, 255, 0.075);
+  }
+
+  .project-card {
+    border: 1px solid rgba(10, 10, 10, 0.2);
+    background-color: rgb(19, 19, 19);
+    color: rgb(224, 224, 224);
+
+    .splash {
+      color: #14a800;
+      text-shadow: 0px 0px 2px #26ff00;
+    }
+
+  }
+
+	.button {
+		
+		&:hover {
+			background-color: rgba(80, 80, 80, 0.1) !important;
+		}
+
+	}
+}
