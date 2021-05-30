@@ -13,6 +13,7 @@ const DATA_PROJELERIM = [
         title: "JPATH",
         description: "Kolay bir şekilde JSON objelerinin içerisinde gezinmenizi ve istediğiniz obje için konum oluşturmanızı sağlar.",
         previewImage: "./images/previews/jpath.png",
+        fullSize: true,
         buttons: [{
             title: "Siteye Git",
             url: "https://thearmagan.github.io/JPATH",
@@ -24,26 +25,50 @@ const DATA_PROJELERIM = [
         splash: "UPDATED"
     },
     {
-        title: "DABOX",
-        description: "Sınırsız miktarda dosya yükleyebildiğiniz bir site!",
-        previewImage: "./images/previews/dabox.png",
-        fullSize: true,
+        title: "Currency",
+        description: "Statik kur API'si. Github CI kullanarak her 24 saate bir güncelleniyor. Avrupa bankasının verileribi kullanıyor.",
+        previewImage: "./images/previews/currency.png",
         buttons: [{
             title: "Siteye Git",
-            url: "https://dabox.me",
+            url: "https://thearmagan.github.io/currency",
         },
         {
             title: "Github",
-            url: "",
+            url: "https://github.com/TheArmagan/currency",
         }],
-        splash: "UPDATED"
+        splash: "NEW"
+    },
+    {
+        title: "SVG TO PNG",
+        description: "Kolayca SVG (Vektör) dosyalarınızı veya linklerinizi PNG' ye dönüştürmenizi sağlayan bir site.",
+        previewImage: "./images/previews/svg-to-png.png",
+        centerPreview: true,
+        buttons: [{
+            title: "Siteye Git",
+            url: "https://thearmagan.github.io/svg-to-png",
+        },
+        {
+            title: "Github",
+            url: "https://github.com/TheArmagan/svg-to-png",
+        }],
+        splash: "NEW"
+    },
+    {
+        title: "InstaDump",
+        description: "Bu konsol uygulaması sayesinde bir Instagram kullanıcısının prefilindeki bütün resimleri ve videoları saniyeler içerisinde indirebilirsiniz.",
+        previewImage: "./images/previews/instadump.png",
+        buttons: [{
+            title: "İndir",
+            url: "https://github.com/TheArmagan/instadump-releases/releases/latest",
+        }],
+        splash: "NEW"
     },
     {
         title: "EasyImage",
         description: "Kolay ve hızlı bir şekilde fotaraf görüntileyebilmenizi sağlayan bir uygulama!",
         previewImage: "./images/previews/easyimage.png",
         buttons: [{
-            title: "İNDİR",
+            title: "İndir",
             url: "https://github.com/TheArmagan/EasyImage/releases/latest",
         },
         {
@@ -116,6 +141,20 @@ const DATA_PROJELERIM = [
             title: "Github",
             url: "https://github.com/TheArmagan/kus-dili-cevirgeci/",
         }]
+    },
+    {
+        title: "Typing Delay",
+        description: "SHH kullanma simülasyonu. Belli bir veya belirsiz bir süre gecikemsinde yazı yazmanızı sağlar.",
+        previewImage: "./images/previews/typing-delay.png",
+        buttons: [{
+            title: "Siteye Git",
+            url: "https://thearmagan.github.io/typing-delay/",
+        },
+        {
+            title: "Github",
+            url: "https://github.com/TheArmagan/typing-delay/",
+        }],
+        splash: "WHY"
     },
     {
         title: "Yumuşak G",
