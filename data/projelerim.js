@@ -1,14 +1,4 @@
 const DATA_PROJELERIM = [
-    // {
-    //     title: "DISCORD SERVER",
-    //     description: `Projelerim hakkında güncellemeleri göremek, ve benim iletişime geçmek için harika bir yer.`,
-    //     previewImage: "https://discord.com/assets/e7a3b51fdac2aa5ec71975d257d5c405.png",
-    //     centerPreview: true,
-    //     buttons: [{
-    //         title: "Join To Server",
-    //         url: "/r/discord",
-    //     }]
-    // },
     {
         title: "JPATH",
         description: "Kolay bir şekilde JSON objelerinin içerisinde gezinmenizi ve istediğiniz obje için konum oluşturmanızı sağlar.",
@@ -170,5 +160,19 @@ const DATA_PROJELERIM = [
             url: "https://github.com/TheArmagan/smooth-g/",
         }],
         splash: "??!"
+    },
+    {
+        title: "Small Phone",
+        description: "A small page to genarate funny images on funny small phone funny.",
+        previewImage: "./images/previews/smallphone.png",
+        buttons: [{
+            title: "Siteye Git",
+            url: "https://thearmagan.github.io/smallphone/",
+        },
+        {
+            title: "Github",
+            url: "https://github.com/TheArmagan/smallphone/",
+        }],
+        splash: "c:"
     }
 ]
