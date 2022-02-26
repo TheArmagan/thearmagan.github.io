@@ -1,5 +1,16 @@
 const DATA_PROJELERIM = [
     {
+        title: "Matchify",
+        description: "Discord üzerinde seninle aynı müziği dinleyenleri bul! Kullancıların şarkı geçmişine bak! En popüler parçaları öğren!",
+        previewImage: "./images/previews/matchify.png",
+        fullSize: true,
+        buttons: [{
+            title: "Siteye Git",
+            url: "https://matchify.org",
+        }],
+        splash: "NEW"
+    },
+    {
         title: "JPATH",
         description: "Kolay bir şekilde JSON objelerinin içerisinde gezinmenizi ve istediğiniz obje için konum oluşturmanızı sağlar.",
         previewImage: "./images/previews/jpath.png",
@@ -25,8 +36,7 @@ const DATA_PROJELERIM = [
         {
             title: "Github",
             url: "https://github.com/TheArmagan/currency",
-        }],
-        splash: "NEW"
+        }]
     },
     {
         title: "SVG TO PNG",
@@ -40,8 +50,7 @@ const DATA_PROJELERIM = [
         {
             title: "Github",
             url: "https://github.com/TheArmagan/svg-to-png",
-        }],
-        splash: "NEW"
+        }]
     },
     {
         title: "InstaDump",
@@ -50,8 +59,7 @@ const DATA_PROJELERIM = [
         buttons: [{
             title: "İndir",
             url: "https://github.com/TheArmagan/instadump-releases/releases/latest",
-        }],
-        splash: "NEW"
+        }]
     },
     {
         title: "EasyImage",
@@ -65,20 +73,6 @@ const DATA_PROJELERIM = [
             title: "Github",
             url: "https://github.com/TheArmagan/EasyImage",
         }]
-    },
-    {
-        title: "Color Palate Maker",
-        description: "Kolay bir şekilde renk paleti oluşturmanızı ve o paleti resim olrak indirmenizi sağlayan bir site.",
-        previewImage: "./images/previews/colorpalatemaker.png",
-        buttons: [{
-            title: "Siteye Git",
-            url: "https://thearmagan.github.io/color-palate-maker",
-        },
-        {
-            title: "Github",
-            url: "https://github.com/TheArmagan/color-palate-maker",
-        }],
-        splash: "BETA"
     },
     {
         title: "CLICKCOLOR",
@@ -104,19 +98,6 @@ const DATA_PROJELERIM = [
         {
             title: "Github",
             url: "https://github.com/TheArmagan/nvidia-geforce-now-supported-games",
-        }]
-    },
-    {
-        title: "DATAPIPE",
-        description: "HTTP/HTTPS Proxy with custom request headers.",
-        previewImage: "./images/previews/datapipe.png",
-        buttons: [{
-            title: "Siteye Git",
-            url: "https://kao-datapipe-1.herokuapp.com/",
-        },
-        {
-            title: "Github",
-            url: "https://github.com/TheArmagan/data-pipe",
         }]
     },
     {
